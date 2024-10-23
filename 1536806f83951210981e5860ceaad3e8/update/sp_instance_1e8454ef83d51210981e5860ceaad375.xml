@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">9984d4ef83d51210981e5860ceaad358</sp_column>
+        <sp_widget display_value="Map Demo">f13490ef83d51210981e5860ceaad358</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 02:25:47</sys_created_on>
+        <sys_id>1e8454ef83d51210981e5860ceaad375</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sp_instance_1e8454ef83d51210981e5860ceaad375</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 02:25:47</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=1e8454ef83d51210981e5860ceaad375"/>
+</record_update>
