@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_analytics_bucket">
+    <sys_analytics_bucket action="INSERT_OR_UPDATE">
+        <analytics_channel display_value="web">6496ef61c7001010393d265c95c260b9</analytics_channel>
+        <application_name>Space</application_name>
+        <bucket_document_id>c2c2d9ff83119210981e5860ceaad30c</bucket_document_id>
+        <bucket_metadata/>
+        <bucket_metadata_customer_override/>
+        <bucket_table_name>sp_portal</bucket_table_name>
+        <bucket_type>service_portal</bucket_type>
+        <enable_unauthenticated_user_tracking>false</enable_unauthenticated_user_tracking>
+        <enabled>true</enabled>
+        <internal_name_for_index>x_560335_space_tab.sp_portal.c2c2d9ff83119210981e5860ceaad30c</internal_name_for_index>
+        <sys_class_name>sys_analytics_bucket</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-24 01:36:31</sys_created_on>
+        <sys_id>ded255ff83119210981e5860ceaad3c4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Space</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sys_analytics_bucket_ded255ff83119210981e5860ceaad3c4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-24 01:36:31</sys_updated_on>
+    </sys_analytics_bucket>
+</record_update>
