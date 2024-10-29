@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="324cb6a383555210981e5860ceaad351" label="Tile" max_length="40" name="x_560335_space_tab_tile" type="collection">
+        <element label="Order" max_length="100000" name="order" type="integer"/>
+        <element function_definition="glidefunction:concat(y_pos, x_pos)" function_field="true" label="Coordinate" max_length="100" name="coordinate" read_only="true" type="string"/>
+        <element label="X Position" max_length="1000" name="x_pos" type="string"/>
+        <element label="Board" max_length="32" name="board" reference="x_560335_space_tab_board" type="reference"/>
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Y Position" max_length="1000" name="y_pos" type="string"/>
+        <index name="index">
+            <element name="board"/>
+        </index>
+    </element>
+</database>

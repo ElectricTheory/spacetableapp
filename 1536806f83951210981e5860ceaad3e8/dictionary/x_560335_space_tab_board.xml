@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="cd53953383519210981e5860ceaad3c7" label="Board" max_length="40" name="x_560335_space_tab_board" type="collection">
+        <element label="Name" mandatory="true" max_length="20" name="name" type="string"/>
+        <element default="1" label="Active" max_length="40" name="active" type="boolean"/>
+    </element>
+</database>

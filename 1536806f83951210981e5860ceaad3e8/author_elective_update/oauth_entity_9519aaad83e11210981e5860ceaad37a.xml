@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity">
+    <oauth_entity action="DELETE">
+        <access>public</access>
+        <access_token_lifespan>1800</access_token_lifespan>
+        <active>true</active>
+        <auth_code_lifespan>60</auth_code_lifespan>
+        <auth_url/>
+        <certificate_url/>
+        <client_id>50b3744c75a24e9da757a1f1a4d08387</client_id>
+        <client_secret>﷞﷟﷒878cd13383851210981e5860ceaad367﷬﷔1﷬﷭HJiS-ZoOey5PzwhZGnrBbw==RatevTulg7b068dJDH3OLihRyZPl4YFkas0=﷮﷯</client_secret>
+        <client_type/>
+        <client_uuid>5519aaad83e11210981e5860ceaad37a</client_uuid>
+        <code_challenge_method>S256</code_challenge_method>
+        <comments/>
+        <default_grant_type>password</default_grant_type>
+        <id_token_lifespan>86400</id_token_lifespan>
+        <jwt_provider/>
+        <login_url/>
+        <logo_url/>
+        <message_signature_lifespan>60</message_signature_lifespan>
+        <mobile_client>false</mobile_client>
+        <name>GitHub</name>
+        <oauth_api_script/>
+        <protocol_name/>
+        <public_client>false</public_client>
+        <redirect_url/>
+        <refresh_token_lifespan>8640000</refresh_token_lifespan>
+        <refresh_token_url/>
+        <restricted_binding>false</restricted_binding>
+        <revoke_token_url/>
+        <salt/>
+        <send_client_credentials_as>request_body_parameter</send_client_credentials_as>
+        <skip_authorize>false</skip_authorize>
+        <sys_class_name>oauth_entity</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 18:23:28</sys_created_on>
+        <sys_id>9519aaad83e11210981e5860ceaad37a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GitHub</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>oauth_entity_9519aaad83e11210981e5860ceaad37a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 18:23:28</sys_updated_on>
+        <token_url/>
+        <type>client</type>
+        <use_mutual_auth>false</use_mutual_auth>
+        <user/>
+    </oauth_entity>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Space Table">1536806f83951210981e5860ceaad3e8</application>
+        <file_path/>
+        <instance_id>643e8ec1db4a759002d9172913961981</instance_id>
+        <instance_name>dev191921</instance_name>
+        <name>oauth_entity_9519aaad83e11210981e5860ceaad37a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="oauth_entity"><oauth_entity action="INSERT_OR_UPDATE"><access>public</access><access_token_lifespan>1800</access_token_lifespan><active>true</active><auth_code_lifespan>60</auth_code_lifespan><auth_url/><certificate_url/><client_id>50b3744c75a24e9da757a1f1a4d08387</client_id><client_secret>﷞﷟﷒878cd13383851210981e5860ceaad367﷬﷔1﷬﷭HJiS-ZoOey5PzwhZGnrBbw==RatevTulg7b068dJDH3OLihRyZPl4YFkas0=﷮﷯</client_secret><client_type/><client_uuid>5519aaad83e11210981e5860ceaad37a</client_uuid><code_challenge_method>S256</code_challenge_method><comments/><default_grant_type>password</default_grant_type><id_token_lifespan>86400</id_token_lifespan><jwt_provider/><login_url/><logo_url/><message_signature_lifespan>60</message_signature_lifespan><mobile_client>false</mobile_client><name>GitHub</name><oauth_api_script/><protocol_name/><public_client>false</public_client><redirect_url/><refresh_token_lifespan>8640000</refresh_token_lifespan><refresh_token_url/><restricted_binding>false</restricted_binding><revoke_token_url/><salt/><send_client_credentials_as>request_body_parameter</send_client_credentials_as><skip_authorize>false</skip_authorize><sys_class_name>oauth_entity</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-10-29 18:23:28</sys_created_on><sys_id>9519aaad83e11210981e5860ceaad37a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>GitHub</sys_name><sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package><sys_policy/><sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope><sys_update_name>oauth_entity_9519aaad83e11210981e5860ceaad37a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-10-29 18:23:28</sys_updated_on><token_url/><type>client</type><use_mutual_auth>false</use_mutual_auth><user/></oauth_entity></record_update>]]></payload>
+        <payload_hash>-70186446</payload_hash>
+        <record_name>GitHub</record_name>
+        <reverted_from/>
+        <source>4f45e26983e11210981e5860ceaad3f1</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 18:23:28</sys_created_on>
+        <sys_id>6549ee2d83e11210981e5860ceaad36b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>192d984c07c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 18:23:28</sys_updated_on>
+        <type>Application Registries</type>
+        <update_guid>6949ee2db8e11210e0b4753318de726a</update_guid>
+        <update_guid_history>6949ee2db8e11210e0b4753318de726a:-70186446</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="GitHub">4279eead83e11210981e5860ceaad378</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-29 18:24:20</sys_created_on>
+        <sys_db_object display_value="" name="oauth_entity">oauth_entity</sys_db_object>
+        <sys_id>2031b41bce9a46d0a3eb27e477617240</sys_id>
+        <sys_metadata>9519aaad83e11210981e5860ceaad37a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GitHub</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_scope_delete display_value="">068f7c6bcefb45d6899be13f133c8731</sys_scope_delete>
+        <sys_update_name>oauth_entity_9519aaad83e11210981e5860ceaad37a</sys_update_name>
+        <sys_update_version display_value="oauth_entity_9519aaad83e11210981e5860ceaad37a">6549ee2d83e11210981e5860ceaad36b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 18:24:20</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

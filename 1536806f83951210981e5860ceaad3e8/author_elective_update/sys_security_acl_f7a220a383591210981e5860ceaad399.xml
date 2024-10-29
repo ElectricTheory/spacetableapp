@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="DELETE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <applies_to/>
+        <condition/>
+        <decision_type>allow</decision_type>
+        <description>Default access control on x_560335_space_tab_grid_map</description>
+        <local_or_existing>Local</local_or_existing>
+        <name>x_560335_space_tab_grid_map</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <security_attribute/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 03:27:36</sys_created_on>
+        <sys_id>f7a220a383591210981e5860ceaad399</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_560335_space_tab_grid_map</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sys_security_acl_f7a220a383591210981e5860ceaad399</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 03:27:36</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Space Table">1536806f83951210981e5860ceaad3e8</application>
+        <file_path/>
+        <instance_id>643e8ec1db4a759002d9172913961981</instance_id>
+        <instance_name>dev191921</instance_name>
+        <name>sys_security_acl_f7a220a383591210981e5860ceaad399</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><applies_to/><condition/><decision_type>allow</decision_type><description>Default access control on x_560335_space_tab_grid_map</description><local_or_existing>Local</local_or_existing><name>x_560335_space_tab_grid_map</name><operation display_value="read">read</operation><script/><security_attribute/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2024-10-23 03:27:36</sys_created_on><sys_id>f7a220a383591210981e5860ceaad399</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_560335_space_tab_grid_map</sys_name><sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package><sys_policy/><sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope><sys_update_name>sys_security_acl_f7a220a383591210981e5860ceaad399</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2024-10-23 03:27:36</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+        <payload_hash>-1793595761</payload_hash>
+        <record_name>x_560335_space_tab_grid_map</record_name>
+        <reverted_from/>
+        <source>2136806f83951210981e5860ceaad3ed</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 03:27:36</sys_created_on>
+        <sys_id>77a220a383591210981e5860ceaad39c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>192b76a64c90000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 03:27:36</sys_updated_on>
+        <type>Access Control</type>
+        <update_guid>7ba220a35159121025c2b689f938c99b</update_guid>
+        <update_guid_history>7ba220a35159121025c2b689f938c99b:-1793595761</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 03:30:06</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl">sys_security_acl</sys_db_object>
+        <sys_id>0b14c50e26b24d5ca47a0a95c0c6acb1</sys_id>
+        <sys_metadata>f7a220a383591210981e5860ceaad399</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_560335_space_tab_grid_map</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_parent display_value="">37a220a383591210981e5860ceaad3ae</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_scope_delete display_value="">068f7c6bcefb45d6899be13f133c8731</sys_scope_delete>
+        <sys_update_name>sys_security_acl_f7a220a383591210981e5860ceaad399</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_f7a220a383591210981e5860ceaad399">77a220a383591210981e5860ceaad39c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 03:30:06</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
