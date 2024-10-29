@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description/>
+        <name>Map Builder</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[    
+	
+	var cols = 10;
+    var rows = 10;
+
+    var alpha = Array.from({
+        length: 26
+    }, (_, i) => String.fromCharCode(97 + i));
+
+
+    var blocks = [];
+    var xInc = 1;
+    var rowInc = 0;
+    var rowCount = 1;
+	var order = 1;
+
+
+    for (var i = 0; i < rows * cols; i++) {
+
+        var yInc = alpha[rowInc];
+
+        var block = {
+            x: xInc,
+            y: yInc,
+            id: yInc + xInc,
+			active: false,
+			order: order
+        };
+
+        if (xInc === cols) {
+            xInc = 1;
+        } else {
+            xInc = xInc + 1;
+        }
+
+        if (rowCount === rows) {
+            rowInc = rowInc + 1;
+            rowCount = 1;
+        } else {
+            rowCount = rowCount + 1;
+        }
+
+		order = order + 1;
+
+        blocks.push(block);
+    }
+
+	for (var idx = 0; idx < blocks.length; idx++) {
+
+		var tileGr = new GlideRecord('x_560335_space_tab_tile');
+		tileGr.initialize();
+
+		tileGr.x_pos = JSON.stringify(blocks[idx].x);
+		tileGr.y_pos = blocks[idx].y.toUpperCase();
+		tileGr.active = blocks[idx].active;
+		tileGr.order = blocks[idx].order;
+		tileGr.insert();
+	}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 14:33:58</sys_created_on>
+        <sys_id>d62b326383555210981e5860ceaad3cc</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Map Builder</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sys_script_fix_d62b326383555210981e5860ceaad3cc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-24 02:04:21</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>d62b326383555210981e5860ceaad3cc</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 14:33:58</sys_created_on>
+        <sys_id>4d3bfe2383555210981e5860ceaad316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 14:33:58</sys_updated_on>
+        <table>sys_script_fix</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

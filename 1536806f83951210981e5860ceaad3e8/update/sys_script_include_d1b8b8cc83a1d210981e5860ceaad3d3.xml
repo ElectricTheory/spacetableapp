@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_560335_space_tab.BoardUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>BoardUtil</name>
+        <script><![CDATA[var BoardUtil = Class.create();
+BoardUtil.prototype = {
+    initialize: function() {},
+
+    getActiveBoards: function() {
+        var boards = [];
+
+        var boardGr = new GlideRecord('x_560335_space_tab_board');
+        boardGr.addEncodedQuery('active=true');
+        boardGr.query();
+
+        while (boardGr.next()) {
+            var board = {};
+            board.id = boardGr.getUniqueValue();
+            board.name = boardGr.getValue('name');
+            boards.push(board);
+        }
+        return boards;
+    },
+
+    getUserBoardPreferences: function(userId) {
+
+        var encQ = "user= " + userId + "^name=boards";
+
+        var prefGr = new GlideRecord('sys_user_preference');
+        prefGr.addEncodedQuery(encQ);
+        prefGr.query();
+
+        if (prefGr.next()) {
+
+            var existing = prefGr.getValue('value');
+
+            var parsed = JSON.parse(existing);
+            var fullBoard = this.validateBoards(parsed.full);
+            var splitBoards = this.validateBoards(parsed.split);
+            var quadBoards = this.validateBoards(parsed.quad);
+
+        } else {
+
+            var boards = {};
+
+            var boardGr = new GlideRecord('x_560335_space_tab_board');
+            boardGr.addEncodedQuery('active=true');
+            boardGr.query();
+
+            if (boardGr.next()) {
+
+                var latestId = boardGr.getUniqueValue();
+                boards.full = [latestId];
+                boards.split = [latestId, latestId];
+                boards.quad = [latestId, latestId, latestId, latestId];
+            }
+
+            var newPrefGr = new GlideRecord('sys_user_preference');
+			newPrefGr.initialize();
+			newPrefGr.user = userId;
+			newPrefGr.value = JSON.stringify(boards);
+			newPrefGr.insert();
+
+        }
+
+    },
+
+    validateBoards: function(boardIds) {
+
+        var validatedIds = [];
+
+        for (var i = 0; i < boardIds.length; i++) {
+
+            var boardGr = new GlideRecord('x_560335_space_tab_board');
+            boardGr.addEncodedQuery('active=true^sys_id=' + boardIds[i]);
+            boardGr.query();
+
+            if (boardGr.next()) {
+                validatedIds.push(boardIds[i]);
+            } else {
+                validatedIds.push(null);
+            }
+
+
+        }
+
+        return validatedIds;
+
+    },
+
+    type: 'BoardUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-24 18:21:04</sys_created_on>
+        <sys_id>d1b8b8cc83a1d210981e5860ceaad3d3</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>BoardUtil</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sys_script_include_d1b8b8cc83a1d210981e5860ceaad3d3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-25 01:36:50</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>d1b8b8cc83a1d210981e5860ceaad3d3</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-24 18:21:04</sys_created_on>
+        <sys_id>65c874cc83a1d210981e5860ceaad31b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-24 18:21:04</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
