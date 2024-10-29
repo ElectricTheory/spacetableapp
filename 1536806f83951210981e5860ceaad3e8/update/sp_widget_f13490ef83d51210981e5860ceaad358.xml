@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller = function(spUtil, $scope) {
+    /* widget controller */
+    var c = this;
+    c.blocks = c.data.blocks;
+	c.activeBoards = c.data.activeBoards;
+	c.allViewBoards = c.data.allBoardTiles;
+	c.userPref = c.data.userPref;
+	c.view = c.data.view;
+	c.fullSelect = "";
+
+
+    spUtil.recordWatch($scope, 'x_560335_space_tab_tile', 'coordinateANYTHING', function(name, data) {
+
+        console.log(name)
+        console.log(data)
+
+    })
+
+
+	c.handleViewChange = function(newView) {
+
+		c.data.action = "update_pref";
+		c.data.pref = "view";
+		c.data.newVal = newView;
+		c.server.update();
+	}
+
+
+	c.handleFullChange = function () {
+		console.log(c.fullSelect)
+	}
+ 
+
+
+    c.toggleActive = function(id) {
+
+        var updated = c.data.blocks.map(function(block) {
+
+            if (block.id === id) {
+                block.active = !block.active;
+                return block;
+            } else {
+                return block;
+            }
+
+        });
+
+        c.blocks = updated;
+
+
+    };
+
+	c.saveBoard = function () {
+		c.data.blocks = c.blocks;
+		c.data.action = "save_board";
+
+		c.server.update();
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.board-selector {&#13;
+  width: 70px;&#13;
+  height: 70px;&#13;
+  border: solid red 1px;&#13;
+  padding: 2px;&#13;
+}&#13;
+&#13;
+.full-view {&#13;
+  .grid {&#13;
+    height: 98%;&#13;
+    width: unset;&#13;
+    aspect-ratio: 1 / 1;&#13;
+  }&#13;
+}&#13;
+&#13;
+.split-view {&#13;
+  .grid {&#13;
+    height: 85%;&#13;
+    width: unset;&#13;
+    aspect-ratio: 1 / 1;&#13;
+  }&#13;
+}&#13;
+&#13;
+.quad-view {&#13;
+  .grid {&#13;
+    height: 49%;&#13;
+    width: unset;&#13;
+    aspect-ratio: 1 / 1;&#13;
+  }&#13;
+}&#13;
+&#13;
+.board-select {&#13;
+  width: 100px;&#13;
+}&#13;
+&#13;
+.split-select {&#13;
+ display: flex;&#13;
+ align-items: center;&#13;
+ justify-content: space-around;&#13;
+ width: 100%;&#13;
+ height: 100%;&#13;
+ padding: 2px;&#13;
+}&#13;
+&#13;
+.full-select {&#13;
+  width: 100%;&#13;
+  height: 100%;&#13;
+  border: solid black 1px;&#13;
+}&#13;
+&#13;
+.split-left, .split-right {&#13;
+  width: 50%;&#13;
+  height: 100%;&#13;
+  border: solid black 1px;&#13;
+}&#13;
+&#13;
+.quad-select {&#13;
+  display: flex;&#13;
+  flex-direction: column;&#13;
+  width: 100%;&#13;
+  height: 100%;&#13;
+}&#13;
+&#13;
+.quad-top, .quad-bottom {&#13;
+  display: flex;&#13;
+  height: 50%;&#13;
+  width: 100%;&#13;
+}&#13;
+&#13;
+&#13;
+.grid-wrapper {&#13;
+   background: orange;&#13;
+    display: flex;&#13;
+    justify-content: center;&#13;
+    align-items: center;&#13;
+    height: 100vh;&#13;
+    width: 100%;&#13;
+    margin: 0;&#13;
+}&#13;
+&#13;
+.grid {&#13;
+    display: grid;&#13;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns of 50px each */&#13;
+    grid-template-rows: repeat(10, 1fr);    /* 10 rows of 50px each */&#13;
+    gap: 1px;                                 /* Space between grid items */&#13;
+}&#13;
+&#13;
+.grid-item {&#13;
+    background-color: pink;                  /* Background color of each block */&#13;
+    border: 1px solid black;                  /* Border around each block */&#13;
+}&#13;
+&#13;
+.grid-top {&#13;
+ margin-bottom: 5px;&#13;
+}&#13;
+&#13;
+.grid-right {&#13;
+ margin-left: 5px;&#13;
+}&#13;
+&#13;
+.active {&#13;
+  background-color: gold !important;&#13;
+}&#13;
+&#13;
+.controller {&#13;
+ position: absolute;&#13;
+ top: 0;&#13;
+ left: 0;&#13;
+ background: lime;&#13;
+ width: 90px; &#13;
+}&#13;
+&#13;
+.wrapper-quad {&#13;
+  flex-wrap: wrap;&#13;
+  .grid {&#13;
+      flex-basis: 34%;&#13;
+  }&#13;
+&#13;
+}&#13;
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Map Demo</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+    var userPrefUtil = new global.SysPrefUtil();
+
+
+    if (!input) {
+
+        data.userId = gs.getUserID();
+        data.blocks = [];
+        data.boards = [];
+        data.allBoardTiles = {};
+
+        var boardUtil = new x_560335_space_tab.BoardUtil();
+        var userPref = userPrefUtil.getUserBoardPreferences(data.userId);
+
+        data.view = userPref.view;
+        data.userPref = userPref;
+
+		console.log(data.userPref)
+
+        //all boards set to active
+        var activeBoards = boardUtil.getActiveBoards();
+        data.activeBoards = activeBoards;
+
+
+        var allboardsQ = "board.sys_idIN" + userPref.ids.join(',');
+
+        var allBoardTilesGr = new GlideRecord('x_560335_space_tab_tile');
+        allBoardTilesGr.addEncodedQuery(allboardsQ);
+        allBoardTilesGr.query();
+
+        while (allBoardTilesGr.next()) {
+
+
+            var block = {
+                x: allBoardTilesGr.getValue('x_pos'),
+                y: allBoardTilesGr.getValue('y_pos'),
+                id: allBoardTilesGr.getValue('coordinate'),
+                active: allBoardTilesGr.getValue('active') == 1 ? true : false
+            };
+
+            var board = allBoardTilesGr.getValue('board');
+
+            if (!data.allBoardTiles[board]) {
+
+                data.allBoardTiles[board] = [];
+                data.allBoardTiles[board].push(block);
+            } else {
+                data.allBoardTiles[board].push(block);
+            }
+        }
+
+		console.log(data)
+
+        var tileGr = new GlideRecord('x_560335_space_tab_tile');
+        tileGr.orderBy('order');
+        tileGr.query();
+
+        while (tileGr.next()) {
+
+            var block = {
+                x: tileGr.getValue('x_pos'),
+                y: tileGr.getValue('y_pos'),
+                id: tileGr.getValue('coordinate'),
+                active: tileGr.getValue('active') == 1 ? true : false
+            };
+
+            data.blocks.push(block);
+
+        }
+
+    } else {
+
+        if (input.action === "save_board") {
+
+        }
+
+        if (input.action === "update_pref") {
+
+            var currentPref = input.userPref;
+            var keyToUpdate = input.pref;
+            var newVal = input.newVal;
+
+            currentPref[keyToUpdate] = newVal;
+
+            var strPref = JSON.stringify(currentPref);
+
+            userPrefUtil.updateUserPreferences(strPref, input.userId);
+
+        }
+
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 02:24:46</sys_created_on>
+        <sys_id>f13490ef83d51210981e5860ceaad358</sys_id>
+        <sys_mod_count>160</sys_mod_count>
+        <sys_name>Map Demo</sys_name>
+        <sys_package display_value="Space Table" source="x_560335_space_tab">1536806f83951210981e5860ceaad3e8</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Space Table">1536806f83951210981e5860ceaad3e8</sys_scope>
+        <sys_update_name>sp_widget_f13490ef83d51210981e5860ceaad358</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-29 15:52:35</sys_updated_on>
+        <template><![CDATA[<div class="controller">
+  <button ng-click="c.saveBoard()">Save</button>
+  
+  <div class="view-select">
+   <label>
+    <input type="radio" ng-model="c.view" value="full" ng-change="c.handleViewChange('full')">
+    full
+  </label><br/>
+ 
+  <label>
+    <input type="radio" ng-model="c.view" value="split" ng-change="c.handleViewChange('split')">
+    split
+  </label><br/>
+    
+     <label>
+    <input type="radio" ng-model="c.view" value="quad" ng-change="c.handleViewChange('quad')">
+    quad
+  </label><br/>
+    
+    
+    <div class="board-selector">
+      
+      <div class="full-select" ng-if="c.view === 'full'">
+          <select ng-model="c.fullSelect" class="board-select" ng-change="c.handleFullChange()"
+          ng-options="board.name for board in c.activeBoards">
+        </select>
+
+      </div>
+
+        <div class="split-select" ng-if="c.view === 'split'">
+          <div class="split-left"></div>
+          <div class="split-right"></div>
+        </div>
+ 
+      <div class="quad-select" ng-if="c.view === 'quad'">
+          <div class="quad-top">
+          <div class="split-left quad-square"></div>
+          <div class="split-right quad-square"></div>
+        </div>
+        <div class="quad-bottom">
+          <div class="split-left quad-square" ></div>
+          <div class="split-right quad-square"></div>
+        </div>
+      </div>
+
+    
+    
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+
+<!-- full view -->
+<div class="grid-wrapper full-view" ng-if="c.view === 'full'">
+    <div class="grid">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.full] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+</div>
+
+<!-- split view -->
+<div class="grid-wrapper split-view" ng-if="c.view === 'split'">
+    <div class="grid">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.split[0]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+    <div class="grid grid-right">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.split[1]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+</div>
+
+<!-- quad view -->
+<div class="grid-wrapper wrapper-quad quad-view" ng-if="c.view === 'quad'">
+    <div class="grid grid-top">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.quad[0]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+    <div class="grid grid-top grid-right">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.quad[1]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+  
+   <div class="grid">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.quad[2]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+    <div class="grid grid-right">
+      <div class="grid-item" 
+           ng-class="{'active': block.active}"
+           ng-repeat="block in c.allViewBoards[c.userPref.quad[3]] track by $index" 
+           ng-click="c.toggleActive(block.id)"
+           >
+        {{block.id}}</div>
+    </div>
+  
+</div>
+
+
+]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>f13490ef83d51210981e5860ceaad358</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-10-23 02:24:45</sys_created_on>
+        <sys_id>db4450ef83d51210981e5860ceaad378</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-10-23 02:24:45</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
